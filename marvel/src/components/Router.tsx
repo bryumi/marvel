@@ -1,14 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home/index'
-import { DefaultLayout } from '../layouts/DefaultLayout'
 import React from 'react'
+import { HomeImage } from './pages/HomeImage'
+import { Login } from './pages/Login'
 
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
+       
         <Route path="/" element={<Home />} />
-      </Route>
+        <Route path="/home" element={<HomeImage />} />
+        <Route path="/login" element={<Login/>} />
+        
     </Routes>
   )
 }

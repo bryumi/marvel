@@ -7,6 +7,10 @@ export const HomeContainer = styled.main`
     justify-content: center;
     padding: 21rem 36rem;
     background: ${(props) => props.theme['black']};
-
+    
+    a{
+        text-decoration: none;
+        cursor: pointer;
+    }
   
 `
