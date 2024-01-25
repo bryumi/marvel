@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageHome } from "../../ImageHome";
-import { AllContainer, InputContainer, LogIn, LoginContainer, SaveForgot, SecondContainer } from "./styles";
+import { AllContainer, Forgot, InputContainer, LogIn, LoginContainer, SaveForgot, SecondContainer, TextContained, TitleContent } from "./styles";
 import { RedBox } from "../../RedBox";
 
 export function Login (){
@@ -8,24 +8,34 @@ export function Login (){
         <AllContainer>
 
         <LoginContainer>
-            <RedBox>
-            </RedBox>
+            <TitleContent>
+                <RedBox>
+                </RedBox>
+            </TitleContent>
             <SecondContainer>
                 <h3>Bem-vindo(a) de volta</h3>
                 <InputContainer>
-                <p>Acesse sua conta</p>
-                <input type="text" />
-                <input type="text" />
+                <TextContained>
+                    <p>Acesse sua conta</p>
+                </TextContained>
+                    <input type="text" placeholder="Usuário" />
+                    <input type="text" placeholder="Senha"/>
                 </InputContainer>
                 <SaveForgot>
-                    <input type="checkbox" name="" id="" />
-                    <p>Esqueci a senha</p>
+                    <span>
+                        <input type="checkbox" name="save" id="save" />
+                        <label htmlFor="save">Salvar login</label>
+                    </span>
+                    <Forgot>
+                        <p>Esqueci a senha</p>
+                        <span>_________________</span>
+                    </Forgot>
                 </SaveForgot>
                 <LogIn>
                     <button>Entrar</button>
                     <span>
-                        <p>Ainda não tem o login</p>
-                        <a>Cadastre-se</a>
+                        <p>Ainda não tem o login?</p>
+                        <a> Cadastre-se</a>
                     </span>
                 </LogIn>
             </SecondContainer>

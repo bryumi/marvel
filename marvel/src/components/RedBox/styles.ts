@@ -9,7 +9,7 @@ export const RedContainer = styled.div`
   h1{
     text-decoration: none;
     font-family: 'Marvel', sans-serif;
-    font-size: 7rem;
+    font-size: 6.25rem;
     line-height: 6rem;
     color: ${(props) => props.theme['white']};
   }
