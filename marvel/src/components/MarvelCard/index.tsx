@@ -3,6 +3,7 @@ import { CardContainer, TextContent } from "./styles";
 
 export interface Cards {
     id: number
+    category: number,
     photo: string
     title: string
     text: string

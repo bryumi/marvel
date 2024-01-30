@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Header } from "../../Header";
 import { MarvelCard, Cards } from "../../MarvelCard";
 import { CharactersContainer } from "./styles";
-import { charactersList } from "../../../data/charactersList"
+import { List } from "../../../data/List"
 import { ArrowLeft, ArrowRight} from 'phosphor-react'
 import { CardContainer } from "../../MarvelCard/styles";
 interface Character extends Cards{
@@ -12,9 +12,17 @@ export function Characters(){
   const [cardsToShow, setCardsToShow] = useState<Character[]>([]);
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
-
+  const [currentCategory, setCurrentCategory] = useState(1);
   const cardsPerPage = 2;
 
+  const filterCardsByCategory = (category: number): Cards[] => {
+    if (!category) return List; 
+    return List.filter((card) => card.category === category);
+  }
+
+  const calculateTotalCardsForCategory = (category: number): number => {
+    return filterCardsByCategory(category).length;
+  };
   useEffect(() => {
     loopCards();
   }, [page]);
@@ -24,9 +32,10 @@ export function Characters(){
   }, [page]);
 
   function loopCards() {
+    const filteredCards = filterCardsByCategory(currentCategory);
     const startIndex = (page - 1) * cardsPerPage;
     const endIndex = startIndex + cardsPerPage;
-    const newCards = charactersList
+    const newCards = filteredCards
       .slice(startIndex, endIndex)
       .map((card, index) => ({
         ...card,
@@ -42,7 +51,9 @@ export function Characters(){
   function handleScrollLeft() {
     setPage((prevPage) => prevPage - 1);
   }
-  const noMoreCards = page + cardsPerPage >= charactersList.length;
+  const totalCardsForCategory = calculateTotalCardsForCategory(currentCategory);
+
+  const noMoreCards = page * cardsPerPage >= totalCardsForCategory;
 
     return(
         <>

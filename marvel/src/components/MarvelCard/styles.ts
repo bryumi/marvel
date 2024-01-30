@@ -36,6 +36,10 @@ export const TextContent = styled.div`
         color: ${(props) => props.theme['white']};
         font-size: 1.25rem;
         border: none;
-        background-color: ${(props) => props.theme['red']}; 
+        background-color: inherit; 
+    }
+    button:hover{
+        transition: 0.2s;
+        color: ${(props) => props.theme['black']};
     }
 `
