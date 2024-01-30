@@ -5,7 +5,7 @@ export const CharactersContainer = styled.main`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
 
     button{
@@ -20,3 +20,15 @@ export const CharactersContainer = styled.main`
     transition: 0.2s;
   }
 `
+const CardContainer = styled.div`
+  width: 200px;
+  height: 300px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.5s ease-out;
+
+  ${(props) => props.hidden && `
+    transform: translateX(-100%);
+  `}
+`;

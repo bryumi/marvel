@@ -1,41 +1,47 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Header } from "../../Header";
-import { MarvelCard } from "../../MarvelCard";
+import { MarvelCard, Cards } from "../../MarvelCard";
 import { CharactersContainer } from "./styles";
 import { charactersList } from "../../../data/charactersList"
 import { ArrowRight} from 'phosphor-react'
-export function Characters(){
-    const [Cards, setCards] = useState(charactersList);
-    const [allCards, setAllCards] = useState(charactersList);
-    const [page, setPage] = useState(0);
-    const [postsPerPage] = useState(1);
+import { CardContainer } from "../../MarvelCard/styles";
 
-    const handleLoadCards = () =>{
-    
-        setCards(charactersList.slice(page, postsPerPage));
-        setAllCards(charactersList);
-      };
-      useEffect(() => {
-        handleLoadCards();
-      }, [handleLoadCards, postsPerPage]);
-    
-      const loadMorePosts = () => {
-        const nextPage = page + postsPerPage;
-        const nextPosts = allCards.slice(nextPage, nextPage + postsPerPage);
-        Cards.push(...nextPosts);
-    
-        setCards(Cards);
-        setPage(nextPage);
-      };
-      const noMorePosts = page + postsPerPage >= allCards.length;
+interface Character extends Cards{
+
+}
+
+export function Characters(){
+  const [cardsToShow, setCardsToShow] = useState<Character[]>([]);
+  const [page, setPage] = useState(1);
+  const cardsPerPage = 2;
+
+  useEffect(() => {
+    loopCards();
+  }, [page]);
+
+  function loopCards() {
+    const startIndex = (page - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    const newCards = charactersList
+      .slice(startIndex, endIndex)
+      .map((card, index) => ({
+        ...card,
+        hidden: index !== 0 // Oculta todos os cards, exceto o primeiro na nova página
+      }));
+      setCardsToShow(newCards);
+  }
+
+  function handleLoadMore() {
+    setPage((prevPage) => prevPage + 1);
+  }
     return(
         <>
         <Header/>
         <CharactersContainer>
-            {charactersList.map((character) => {
-                return <MarvelCard key={character.id} card={character}/>
-            })}
-            <button onClick={loadMorePosts} disabled={noMorePosts}>
+          {cardsToShow.map((character) => (
+            <MarvelCard key={character.id} card={character} />
+          ))}
+            <button onClick={handleLoadMore} >
                 <ArrowRight size={32} />
             </button>
         </CharactersContainer>
