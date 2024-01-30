@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled, {keyframes, css} from "styled-components";
+
+
 
 export const CharactersContainer = styled.main`
     height: 48rem;
@@ -7,6 +9,8 @@ export const CharactersContainer = styled.main`
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
+    overflow-x: auto;
+    transition: transform 0.3s ease-in-out;
 
     button{
         border: none;
@@ -19,16 +23,7 @@ export const CharactersContainer = styled.main`
     color: ${(props) => props.theme['gray100']};
     transition: 0.2s;
   }
+  button:disabled {
+    color: ${(props) => props.theme['black']};
+  }
 `
-const CardContainer = styled.div`
-  width: 200px;
-  height: 300px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.5s ease-out;
-
-  ${(props) => props.hidden && `
-    transform: translateX(-100%);
-  `}
-`;
