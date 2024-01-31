@@ -4,6 +4,10 @@ export const CardContainer = styled.div`
     position: relative;
     width: 18rem;
     height: 27rem;
+    img{
+        height: 27rem;
+        width: 18rem;
+    }
 `
 export const TextContent = styled.div`
     width: 18rem;

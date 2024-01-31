@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight } from "phosphor-react";
 import { ArrowButton } from "../Characters/styles";
 
 export function Movies(){
-const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
+  const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(2);
@@ -64,6 +64,7 @@ const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
                 <ArrowRight size={32} />
             </ArrowButtonMov>
         </MoviesContainer>
+        
         </>
     )
 }
