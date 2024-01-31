@@ -2,11 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Header } from "../../Header";
 import { MarvelCard, Cards } from "../../MarvelCard";
 import { ArrowButton, CharactersContainer } from "./styles";
-import { List } from "../../../data/List"
+import { characterList } from "../../../data/characterList"
 import { ArrowLeft, ArrowRight} from 'phosphor-react'
 import { CardContainer } from "../../MarvelCard/styles";
 interface Character extends Cards{
-
+  aparicoes?: string
+  avaliacaoFas?: number
 }
 export function Characters(){
   const [cardsToShow, setCardsToShow] = useState<Character[]>([]);
@@ -16,8 +17,8 @@ export function Characters(){
   const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
-    if (!category) return List; 
-    return List.filter((card) => card.category === category);
+    if (!category) return characterList; 
+    return characterList.filter((card) => card.category === category);
   }
 
   const calculateTotalCardsForCategory = (category: number): number => {
