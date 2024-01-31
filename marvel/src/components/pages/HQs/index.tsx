@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../Header";
-import { HqsContainer } from "./styles";
+import { ArrowButtonHq, HqsContainer } from "./styles";
 import { Cards, MarvelCard } from "../../MarvelCard";
 import { List } from "../../../data/List";
 import { ArrowLeft, ArrowRight } from "phosphor-react";
@@ -10,7 +10,7 @@ export function HQs(){
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(3);
-  const cardsPerPage = 2;
+  const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
     if (!category) return List; 
@@ -55,13 +55,13 @@ export function HQs(){
         <>
         <Header />
         <HqsContainer>
-        {showLeftArrow && <button onClick={handleScrollLeft}><ArrowLeft size={32} /></button>}
+        {showLeftArrow && <ArrowButtonHq onClick={handleScrollLeft}><ArrowLeft size={32} /></ArrowButtonHq>}
           {cardsToShow.map((hq) => (
             <MarvelCard key={hq.id} card={hq} />
           ))}
-            <button onClick={handleLoadMore} disabled={noMoreCards}>
+            <ArrowButtonHq onClick={handleLoadMore} disabled={noMoreCards}>
                 <ArrowRight size={32} />
-            </button>
+            </ArrowButtonHq>
         </HqsContainer>
         </>
     )

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Header } from "../../Header";
 import { MarvelCard, Cards } from "../../MarvelCard";
-import { CharactersContainer } from "./styles";
+import { ArrowButton, CharactersContainer } from "./styles";
 import { List } from "../../../data/List"
 import { ArrowLeft, ArrowRight} from 'phosphor-react'
 import { CardContainer } from "../../MarvelCard/styles";
@@ -13,7 +13,7 @@ export function Characters(){
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(1);
-  const cardsPerPage = 2;
+  const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
     if (!category) return List; 
@@ -60,13 +60,15 @@ export function Characters(){
         <Header/>
         <CharactersContainer>
   
-        {showLeftArrow && <button onClick={handleScrollLeft}><ArrowLeft size={32} /></button>}
+        {showLeftArrow && <ArrowButton onClick={handleScrollLeft}><ArrowLeft size={32} /></ArrowButton>}
           {cardsToShow.map((character) => (
             <MarvelCard key={character.id} card={character} />
           ))}
-            <button onClick={handleLoadMore} disabled={noMoreCards}>
+      
+            <ArrowButton onClick={handleLoadMore} disabled={noMoreCards}>
                 <ArrowRight size={32} />
-            </button>
+            </ArrowButton>
+      
         </CharactersContainer>
         </>
     )

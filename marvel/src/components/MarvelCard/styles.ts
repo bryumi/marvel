@@ -31,14 +31,14 @@ export const TextContent = styled.div`
         font-size: 0.75rem;
         line-height: 1rem;
     }
-    button{
-        
+ 
+`
+export const DetailsButton = styled.button`  
         color: ${(props) => props.theme['white']};
         font-size: 1.25rem;
         border: none;
         background-color: inherit; 
-    }
-    button:hover{
+   :hover{
         transition: 0.2s;
         color: ${(props) => props.theme['black']};
     }

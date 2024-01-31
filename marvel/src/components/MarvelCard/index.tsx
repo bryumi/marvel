@@ -1,5 +1,5 @@
 import React from "react";
-import { CardContainer, TextContent } from "./styles";
+import { CardContainer, DetailsButton, TextContent } from "./styles";
 
 export interface Cards {
     id: number
@@ -20,7 +20,7 @@ export function MarvelCard({ card }: CardProps){
                     {card.title}
                 </span>
                 <p>{card.text}</p>
-                <button>Ver detalhes</button>
+                <DetailsButton>Ver detalhes</DetailsButton>
             </TextContent>
         </CardContainer>
     )

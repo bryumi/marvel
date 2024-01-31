@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../Header";
-import { MoviesContainer } from "./styles";
+import { ArrowButtonMov, MoviesContainer } from "./styles";
 import { Cards, MarvelCard } from "../../MarvelCard";
 import { List } from "../../../data/List";
 import { ArrowLeft, ArrowRight } from "phosphor-react";
+import { ArrowButton } from "../Characters/styles";
 
 export function Movies(){
 const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(2);
-  const cardsPerPage = 2;
+  const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
     if (!category) return List; 
@@ -55,13 +56,13 @@ const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
         <>
         <Header />
         <MoviesContainer>
-        {showLeftArrow && <button onClick={handleScrollLeft}><ArrowLeft size={32} /></button>}
+        {showLeftArrow && <ArrowButtonMov onClick={handleScrollLeft}><ArrowLeft size={32} /></ArrowButtonMov>}
           {cardsToShow.map((movie) => (
             <MarvelCard key={movie.id} card={movie} />
           ))}
-            <button onClick={handleLoadMore} disabled={noMoreCards}>
+            <ArrowButtonMov onClick={handleLoadMore} disabled={noMoreCards}>
                 <ArrowRight size={32} />
-            </button>
+            </ArrowButtonMov>
         </MoviesContainer>
         </>
     )

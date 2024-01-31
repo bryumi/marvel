@@ -12,18 +12,19 @@ export const HqsContainer = styled.section`
     overflow-x: auto;
     transition: transform 0.3s ease-in-out;
 
-    button{
-        border: none;
-        color: ${(props) => props.theme['red']};
-        background-color: inherit;
-        cursor: pointer;
-    }
+`
+export const ArrowButtonHq = styled.button`
     
-  button:hover {
+  border: none;
+  color: ${(props) => props.theme['red']};
+  background-color: inherit;
+  cursor: pointer;
+    
+  :hover {
     color: ${(props) => props.theme['gray100']};
     transition: 0.2s;
   }
-  button:disabled {
+  :disabled {
     color: ${(props) => props.theme['black']};
   }
 `
