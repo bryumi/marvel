@@ -12,8 +12,8 @@ export const characterList= [
         photo: '../../public/img/characters/wanda.svg',
         title:'Wanda Maximoff',
         text:'Wanda Maximoff foi sequestrada da Sérvia e trazida para a Montanha Wundagore, base do Alto Evolucionário. Durante anos, ela e seu irmão gêmeo, Pietro, acreditavam que eram filhos de um casal de ciganos.',
-        aparicoes: 'Vingadores - Era de Ultron, Capitão América - Guerra Civil, Vingadores - Guerra Infinita, Vingadores - Ultimato, WandaVision',
-        avaliacaoFas: 4
+        appearsIn: 'Vingadores - Era de Ultron, Capitão América - Guerra Civil, Vingadores - Guerra Infinita, Vingadores - Ultimato, WandaVision',
+        ratingOfFans: 4
     },
     {
         id: 13, 
@@ -21,8 +21,8 @@ export const characterList= [
         photo: '../../public/img/characters/thanos.svg',
         title:'Thanos',
         text:'A lua Titã era governada por Mentor (A Lars), quando então reinava paz e tecnologia. Mentor tinha dois filhos: Eros e Thanos.  Ao contrário do irmão, Thanos, era bem mais poderoso e almejava ainda mais.',
-        aparicoes: 'Guardiões da Galáxia - vol. I, Vingadores - Guerra Infinita, Vingadores - Ultimato',
-        avaliacaoFas: 5
+        appearsIn: 'Guardiões da Galáxia - vol. I, Vingadores - Guerra Infinita, Vingadores - Ultimato',
+        ratingOfFans: 5
     },
     {
         id: 14, 
@@ -30,7 +30,7 @@ export const characterList= [
         photo: '../../public/img/characters/hulk.svg',
         title:'Hulk',
         text:'Na história original dos quadrinhos, o Hulk é um selvagem e poderoso alter ego do Dr. Robert Bruce Banner, um cientista que foi atingido por raios gama enquanto salvava um adolescente durante o teste militar.',
-        aparicoes: 'Vingadores, Vingadores - Era de Ultron, Thor - Ragnarok, Vingadores - Guerra Infinita,Vingadores - Ultimato',
-        avaliacaoFas: 4
+        appearsIn: 'Vingadores, Vingadores - Era de Ultron, Thor - Ragnarok, Vingadores - Guerra Infinita,Vingadores - Ultimato',
+        ratingOfFans: 4
     },
 ]

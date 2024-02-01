@@ -4,10 +4,10 @@ import { MarvelCard, Cards } from "../../MarvelCard";
 import { ArrowButton, CharactersContainer } from "./styles";
 import { characterList } from "../../../data/characterList"
 import { ArrowLeft, ArrowRight} from 'phosphor-react'
-import { CardContainer } from "../../MarvelCard/styles";
-interface Character extends Cards{
-  aparicoes?: string
-  avaliacaoFas?: number
+
+export interface Character extends Cards{
+  appearsIn?: string
+  ratingOfFans?: number
 }
 export function Characters(){
   const [cardsToShow, setCardsToShow] = useState<Character[]>([]);

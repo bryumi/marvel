@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonContent, CloseButton, ModalContainer, ModalContent, ModalWrapper, PhotoContent } from './styles'
+import { CloseButton, ModalContainer, ModalContent, ModalWrapper, PhotoContent } from './styles'
 import { XCircle } from 'phosphor-react'
 
 export function Modal ({ isOpen, onClose, card }) {

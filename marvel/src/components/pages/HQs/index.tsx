@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Header } from "../../Header";
 import { ArrowButtonHq, HqsContainer } from "./styles";
 import { Cards, MarvelCard } from "../../MarvelCard";
-import { List } from "../../../data/List";
+import { hqList } from "../../../data/hqList";
 import { ArrowLeft, ArrowRight } from "phosphor-react";
 
+interface Hq extends Cards {
+  purchase?: string
+  review?: number 
+}
 export function HQs(){
-    const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
+  const [cardsToShow, setCardsToShow] = useState<Hq[]>([]);
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(3);
   const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
-    if (!category) return List; 
-    return List.filter((card) => card.category === category);
+    if (!category) return hqList; 
+    return hqList.filter((card) => card.category === category);
   }
 
   const calculateTotalCardsForCategory = (category: number): number => {

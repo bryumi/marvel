@@ -2,20 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Header } from "../../Header";
 import { ArrowButtonMov, MoviesContainer } from "./styles";
 import { Cards, MarvelCard } from "../../MarvelCard";
-import { List } from "../../../data/List";
+import { movieList } from "../../../data/movieList";
 import { ArrowLeft, ArrowRight } from "phosphor-react";
-import { ArrowButton } from "../Characters/styles";
 
+interface Movie extends Cards {
+  availableIn?: string
+  review?: number 
+  chronology?: number
+  release?: number
+}
 export function Movies(){
-  const [cardsToShow, setCardsToShow] = useState<Cards[]>([]);
+  const [cardsToShow, setCardsToShow] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(2);
   const cardsPerPage = 3;
 
   const filterCardsByCategory = (category: number): Cards[] => {
-    if (!category) return List; 
-    return List.filter((card) => card.category === category);
+    if (!category) return movieList; 
+    return movieList.filter((card) => card.category === category);
   }
 
   const calculateTotalCardsForCategory = (category: number): number => {
