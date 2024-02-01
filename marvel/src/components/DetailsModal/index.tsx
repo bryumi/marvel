@@ -3,7 +3,38 @@ import { CloseButton, ModalContainer, ModalContent, ModalWrapper, PhotoContent }
 import { XCircle } from 'phosphor-react'
 
 export function Modal ({ isOpen, onClose, card }) {
-    if (!isOpen) return null;
+
+  if (!isOpen) return null;
+  let details = null;
+    switch (card.category) {
+      case 1: 
+          details = (
+              <div>
+                  <p>Aparece em: {card.appearsIn}</p>
+                  <p>Classificação dos fãs: {card.ratingOfFans}</p>
+              </div>
+          );
+          break;
+          case 2: 
+          details = (
+              <div>
+                  <p>Disponível em: {card.availableIn}</p>
+                  <p>Crítica: {card.review}</p>
+              </div>
+          );
+          break;      
+      case 3:
+          details = (
+              <div>
+                  <p>Compra: {card.purchase}</p>
+                  <p>Crítica: {card.review}</p>
+              </div>
+          );
+          break;
+
+      default:
+          details = null;
+    }
   
     return (
       <ModalWrapper isOpen={isOpen} onClick={onClose}>
@@ -14,6 +45,7 @@ export function Modal ({ isOpen, onClose, card }) {
         <ModalContent onClick={(e) => e.stopPropagation()}>
           <h2>{card.title}</h2>
           <p>{card.text}</p>
+          {details}
             <CloseButton onClick={onClose}><XCircle size={32} /></CloseButton>
         </ModalContent>
         </ModalContainer>

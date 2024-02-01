@@ -2,6 +2,7 @@ import React from "react";
 import { ImageHome } from "../../ImageHome";
 import { AllContainer, Forgot, InputContainer, LogIn, LoginContainer, SaveForgot, SecondContainer, TextContained, TitleContent } from "./styles";
 import { RedBox } from "../../RedBox";
+import { NavLink } from "react-router-dom";
 
 export function Login (){
     return(
@@ -32,7 +33,9 @@ export function Login (){
                     </Forgot>
                 </SaveForgot>
                 <LogIn>
-                    <button>Entrar</button>
+                   <NavLink to="/characters">
+                        <button>Entrar</button>
+                    </NavLink> 
                     <span>
                         <p>Ainda não tem o login?</p>
                         <a> Cadastre-se</a>
