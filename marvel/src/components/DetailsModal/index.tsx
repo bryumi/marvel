@@ -6,12 +6,16 @@ export function Modal ({ isOpen, onClose, card }) {
 
   if (!isOpen) return null;
   let details = null;
+  function NumAppears(appears){
+    return parseInt(appears.split(',').length);
+  }
     switch (card.category) {
       case 1: 
           details = (
               <div>
-                  <p>Aparece em: {card.appearsIn}</p>
-                  <p>Classificação dos fãs: {card.ratingOfFans}</p>
+                <p>Aparições: {card.appearsIn? NumAppears(card.appearsIn) : null}</p>
+                <p>Aparece em: {card.appearsIn}</p>
+                <p>Classificação dos fãs: {card.ratingOfFans}</p>
               </div>
           );
           break;

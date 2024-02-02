@@ -87,15 +87,7 @@ export const LogIn = styled.div`
     display: flex;
     flex-direction: column;
     color: ${(props) => props.theme['gray100']};
-    button{
-        height: 4.5rem;
-        background: ${(props) => props.theme['red']};
-        color: ${(props) => props.theme['white']};
-        font-size: 1.75rem;
-        border-radius: 50px;
-        border: none;
-        margin-bottom: 1rem;
-    }
+
     span{
         display: flex;
         flex-direction: row;
@@ -108,4 +100,19 @@ export const LogIn = styled.div`
             cursor: pointer;
         }
     }
+`
+export const LogInButton = styled.button`
+    height: 4.5rem;
+    background: ${(props) => props.theme['red']};
+    color: ${(props) => props.theme['white']};
+    font-size: 1.75rem;
+    border-radius: 50px;
+    border: none;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 24rem;
+    height: 4rem;
+
+    cursor: pointer;
+
 `

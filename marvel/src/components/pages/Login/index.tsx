@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageHome } from "../../ImageHome";
-import { AllContainer, Forgot, InputContainer, LogIn, LoginContainer, SaveForgot, SecondContainer, TextContained, TitleContent } from "./styles";
+import { AllContainer, Forgot, InputContainer, LogIn, LogInButton, LoginContainer, SaveForgot, SecondContainer, TextContained, TitleContent } from "./styles";
 import { RedBox } from "../../RedBox";
 import { NavLink } from "react-router-dom";
 
@@ -34,7 +34,7 @@ export function Login (){
                 </SaveForgot>
                 <LogIn>
                    <NavLink to="/characters">
-                        <button>Entrar</button>
+                        <LogInButton>Entrar</LogInButton>
                     </NavLink> 
                     <span>
                         <p>Ainda não tem o login?</p>
