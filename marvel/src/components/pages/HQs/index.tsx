@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight } from "phosphor-react";
 
 interface Hq extends Cards {
   purchase?: string
-  review?: number 
+  
 }
 export function HQs(){
   const [cardsToShow, setCardsToShow] = useState<Hq[]>([]);

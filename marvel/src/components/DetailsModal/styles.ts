@@ -1,3 +1,4 @@
+import { Star } from "phosphor-react";
 import styled from "styled-components";
 
 export const ModalWrapper = styled.div`
@@ -63,4 +64,7 @@ export const CloseButton = styled.button`
     :hover{
       color: ${(props) => props.theme['black']};
     }
+`
+export const StyledStar = styled(Star)`
+color: ${({ filled }) => (filled ? '#FFB300' : '#84848D')}; /* Cor da estrela preenchida ou vazia */
 `

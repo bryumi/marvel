@@ -1,6 +1,6 @@
 import React from "react";
-import { CloseButton, ModalContainer, ModalContent, ModalWrapper, PhotoContent } from './styles'
-import { XCircle } from 'phosphor-react'
+import { CloseButton, ModalContainer, ModalContent, ModalWrapper, PhotoContent, StarContainer, StyledStar } from './styles'
+import { Star, XCircle } from 'phosphor-react'
 
 export function Modal ({ isOpen, onClose, card }) {
 
@@ -9,13 +9,20 @@ export function Modal ({ isOpen, onClose, card }) {
   function NumAppears(appears){
     return parseInt(appears.split(',').length);
   }
+  function StarsReview(num: number){
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(<StyledStar key={i} filled={i < num} />);
+    }
+    return stars;
+  }
     switch (card.category) {
       case 1: 
           details = (
               <div>
                 <p>Aparições: {card.appearsIn? NumAppears(card.appearsIn) : null}</p>
                 <p>Aparece em: {card.appearsIn}</p>
-                <p>Classificação dos fãs: {card.ratingOfFans}</p>
+                <p>Classificação dos fãs: {StarsReview(card.review)}</p>
               </div>
           );
           break;
@@ -23,7 +30,7 @@ export function Modal ({ isOpen, onClose, card }) {
           details = (
               <div>
                   <p>Disponível em: {card.availableIn}</p>
-                  <p>Crítica: {card.review}</p>
+                  <p>Crítica: {StarsReview(card.review)}</p>
               </div>
           );
           break;      
@@ -31,7 +38,7 @@ export function Modal ({ isOpen, onClose, card }) {
           details = (
               <div>
                   <p>Compra: {card.purchase}</p>
-                  <p>Crítica: {card.review}</p>
+                  <p>Crítica: {StarsReview(card.review)}</p>
               </div>
           );
           break;

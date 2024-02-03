@@ -7,10 +7,12 @@ import profilePicture from "../../assets/profile-picture.png";
 export function Header() {
   return (
     <HeaderContainer>
-      <LogoContent>
-        <p>Mar
-          vel</p>
-      </LogoContent>
+        <LogoContent>
+          <span>
+            <p>Mar
+              vel</p>
+          </span>
+        </LogoContent>
       <NavContent>  
         <NavLink to="/characters">Personagens</NavLink>
         <NavLink to="/movies">Filmes</NavLink>

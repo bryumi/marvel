@@ -8,17 +8,20 @@ export const HeaderContainer = styled.header`
  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid transparent;
-  border-bottom-color:${(props) => props.theme['red']};
+  box-shadow: 2px 1px 9px 0px rgba(255, 0, 0, 1);
 `
 export const LogoContent = styled.div`
   width: 7.5rem;
   height: 3.25rem;
-  background: ${(props) => props.theme['red']};
-  p{
-    text-decoration: none;
+  background-color:${(props) => props.theme['red']};
+  span{
+    width: 7rem;
+    height: 3rem;
+  }
+  p{ 
     font-family: 'Marvel', sans-serif;
-    font-size: 6.25rem;
-    line-height: 6rem;
+    font-size: 5rem;
+    line-height: 5rem;
     color: ${(props) => props.theme['white']};
   }
 `

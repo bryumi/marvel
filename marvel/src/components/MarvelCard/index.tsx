@@ -8,6 +8,7 @@ export interface Cards {
     photo: string
     title: string
     text: string
+    review?: number 
 }
 interface CardProps {
     card: Cards
