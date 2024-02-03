@@ -46,10 +46,9 @@ export function Movies(){
       .slice(startIndex, endIndex)
       .map((card, index) => ({
         ...card,
-        hidden: index !== 0 // Oculta todos os cards, exceto o primeiro na nova página
+        hidden: index !== 0 
       }));
       setCardsToShow(newCards);
-      console.log(newCards)
   }
 
   function handleLoadMore() {
@@ -75,15 +74,15 @@ export function Movies(){
               <option value="chronology">Cronologia</option>
               <option value="release">Lançamento</option>
           </SelectFilter>
-            <MoviesContainer>
-            {showLeftArrow && <ArrowButtonMov onClick={handleScrollLeft}><ArrowLeft size={32} /></ArrowButtonMov>}
-              {cardsToShow.map((movie) => (
-                <MarvelCard key={movie.id} card={movie} />
-              ))}
-                <ArrowButtonMov onClick={handleLoadMore} disabled={noMoreCards}>
-                    <ArrowRight size={32} />
-                </ArrowButtonMov>
-            </MoviesContainer>
+              <MoviesContainer>
+              {showLeftArrow && <ArrowButtonMov onClick={handleScrollLeft}><ArrowLeft size={32} /></ArrowButtonMov>}
+                {cardsToShow.map((movie) => (
+                  <MarvelCard key={movie.id} card={movie} />
+                ))}
+                  <ArrowButtonMov onClick={handleLoadMore} disabled={noMoreCards}>
+                      <ArrowRight size={32} />
+                  </ArrowButtonMov>
+              </MoviesContainer>
           </PageWrapper>
           
         </>

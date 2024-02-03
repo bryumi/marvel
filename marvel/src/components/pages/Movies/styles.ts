@@ -14,10 +14,11 @@ export const MoviesContainer = styled.section`
     flex-direction: row;
     justify-content: space-evenly;
     flex-direction: row;
+    flex-wrap: wrap;
     overflow-x: auto;
     transition: transform 0.3s ease-in-out;
+    margin-top: -6rem;
 
-  margin-top: -6rem;
 `
 export const ArrowButtonMov = styled.button`
     border: none;
@@ -40,10 +41,19 @@ export const SelectFilter = styled.select`
   padding: 0.75rem;
   color: ${(props) => props.theme['red']};
   background-color: inherit;
-  border: 1px solid ${(props) => props.theme['red']};
+  border: 1px solid; 
   border-radius: 10px;
   font-family: inherit;
+  font-size: 1rem;
   margin-top: 6rem;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
+  z-index: 999;
 
+  
+  option {
+    background-color: ${(props) => props.theme['black']};
+    padding: 0.5rem;
+    font-family: inherit;
+
+  }
 `
